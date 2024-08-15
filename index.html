@@ -38,7 +38,29 @@
                 </svg>
             </button>
         </section>
-        <main class="library"></main>
+        <main class="library">
+            <div class="library__book">
+                <div class="library__book-avatar-box">
+                    <img class="library__book-avatar-icon" src="./assets/images/book-icon.svg" alt="Book icon">
+                </div>
+                <div class="library__book-info-box">
+                    <h3 class="library__book-info-heading">Pragmatic Programmer</h3>
+                    <div>
+                        <h4 class="library__book-info-author">@byAndyHunt</h4>
+                        <span class="library__book-info-pages">Pages: 320</span>
+                    </div>
+                    <div>
+                        <div class="library__book-read-box">
+                            <span>Mark as Read:</span>
+                            <input type="checkbox" class="library__book-read">
+                        </div>
+                        <button type="button" class="library__book-close-button" aria-label="Remove book">
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
         <dialog  data-modal class="modal book-details">
             <div class="modal__row flex-wrapper">
                 <h2 class="modal__heading">Book Details</h2>
@@ -49,16 +71,16 @@
             <form  class="modal__form">
                 <ul>
                     <li>
-                        <label for="author">Author</label>
-                        <input type="text" name="author" id="author" placeholder="e.g. Andy Hunt">
+                        <label for="author">Author <strong><span aria-label="required input field">*</span></strong></label>
+                        <input type="text" name="author" id="author" minlength="2" maxlength="11" required placeholder="e.g. Andy Hunt">
                     </li>
                     <li>
                         <label for="title">Title <strong><span aria-label="required input field">*</span></strong></label>
-                        <input type="text" name="title" id="title" required placeholder="e.g Pragmatic Programmer">
+                        <input type="text" name="title" id="title" minlength="2" max="20" required placeholder="e.g Pragmatic Programmer">
                     </li>
                     <li>
                         <label for="pages">Pages <strong><span aria-label="required input field">*</span></strong></label>
-                        <input type="number" min="1" max="9999" step="1" name="pages" id="pages" required placeholder="1 - 9999">
+                        <input type="number" min="1" max="999" step="1" name="pages" id="pages" required placeholder="1 - 999">
                     </li>
                     <li>
                         <label for="read">Mark as Read</label>
