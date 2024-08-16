@@ -105,8 +105,8 @@ p, h1, h2, h3, h4, h5, h6 {
 
     --clr-primary: rgb(249, 59, 59);
     --clr-primary--200: rgb(249, 79,79);
-    --clr-primary--300: #FFEAEC; 
-    --clr-primary--400: #fff9f9;
+    --clr-primary--300: rgb(255, 234, 236); 
+    --clr-primary--400: rgb(255, 249, 249);
 
     /* SECONDARY */
 
@@ -187,8 +187,7 @@ body {
 /* HEADER */
 
 .header {
-    padding: 1rem;
-    padding-top: 2.5rem;
+    padding: 2.5rem 1rem 1rem .75rem;
     position: relative;
     margin-bottom: 2rem;
 }
@@ -201,10 +200,17 @@ body {
     background-color: red;
 }
 
+
 .header__github-icon {
     height: 36px;
     width: 36px;
     fill: var(--clr-neutral--300);
+    transition: all .2s;
+}
+
+.header__github-link:hover .header__github-icon,
+.header__github-link:active .header__github-icon {
+    fill: var(--clr-neutral--600);
 }
 
 .header nav a:link,
@@ -353,6 +359,8 @@ body {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    width: 16.25rem;
+    padding: 0 .5rem 0 0;
 }
 
 .modal[open] {
@@ -362,14 +370,14 @@ body {
     transform: translate(-50%, -50%) scale(1);
 }
 
-.modal__row.flex-wrapper {
-    gap: 5rem;
-}
-
 .modal__row {
     background-color: var(--clr-primary);
     padding: 1.5rem 2rem;
     border-radius: 1rem;
+}
+
+.modal__row.flex-wrapper {
+    gap: 1rem;
 }
 
 .modal__heading {
