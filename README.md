@@ -20,13 +20,14 @@ Library project is an online library management system designed to help users or
 
 
 ### Links
-  - Live preview - [Library](https://emrahiso.github.io/Admin-dashboard/)
+  - Live preview - [Library](https://emrahiso.github.io/Library/)
   - GitHub repo - [Library Repo](https://github.com/EmrahIso/Library.git)
 
 ## Built with 
   - HTML
   - CSS
-  - FlexBox
+  - JavaScript
+  - DOM
   
 ## Author
 
