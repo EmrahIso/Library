@@ -35,12 +35,9 @@ Book.prototype.remove = function(index) {
 }
 
 Book.prototype.changeStatus = function(status) {
-    console.log(status);
     this.read = status;
-    console.log(myLibrary);
 }
 
-console.log(myLibrary);
 // Functions
 
 function bookDetailsSubmitted(e) {
@@ -75,7 +72,6 @@ function addBookToLibrary(bookTitle, bookAuthor, bookPages, bookRead) {
     myLibrary.push(new Book(bookTitle, bookAuthor, bookPages, bookRead));
 
     // Add Book Element into LibraryEl
-    console.log(libraryEl);
 
     let bookEls = libraryEl.querySelectorAll('.library__book');
 
@@ -86,13 +82,17 @@ function addBookToLibrary(bookTitle, bookAuthor, bookPages, bookRead) {
     newBook.querySelector('.library__book-info-author').textContent = `@by${newBookAuthor}`;
     newBook.querySelector('.library__book-info-pages').textContent = `Pages: ${bookPages}`;
     newBook.querySelector('.library__book-read').checked = bookRead;
+
+    // Associate book's read checkbox with label 
+
+    newBook.querySelector('.library__book-read').setAttribute("id", `book-read-${myLibrary.length - 1}`);
+    newBook.querySelector('.library__book-read').previousElementSibling.setAttribute("for", `book-read-${myLibrary.length - 1}`);
     
     // Add Book index data attribute
     newBook.removeAttribute(`data-book-0`);
     newBook.setAttribute(`data-book-${myLibrary.length - 1}`, "");
    
     libraryEl.appendChild(newBook);
-    console.log(myLibrary);
 }
 
 

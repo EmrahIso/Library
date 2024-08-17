@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Library project is an online library management system designed to help users organize and track the books they are currently reading or plan to read in the future. Users can create and manage a personal book collection, categorize their books, and track their reading progress.">
     <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="src/responsive.css">
     <title>Library</title>
 </head>
 <body>
     <header class="header">
         <div class="container flex-wrapper">
-            <div class="header__logo">
+            <a href="#" aria-label="logo link of the webpage thats pointing into main page" class="header__logo">
                 <svg xmlns="http://www.w3.org/2000/svg" class="header__logo-icon" class="icon icon-tabler icon-tabler-book-2" width="56" height="56" viewBox="0 0 24 24" stroke-width="0.75" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <path d="M19 4v16h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12z" />
                     <path d="M19 16h-12a2 2 0 0 0 -2 2" />
                     <path d="M9 8h6" />
                 </svg>
-            </div>
+            </a>
             <nav>
-                <a href="https://github.com/EmrahIso" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/EmrahIso" aria-label="Creator's github account" class="header__github-link" target="_blank" rel="noopener noreferrer">
                     <svg xmlns="http://www.w3.org/2000/svg" class="header__github-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"></path></svg>
                 </a>
             </nav>
@@ -28,9 +30,9 @@
         <section class="post-header flex-wrapper">
             <div>
                 <h1 class="main-heading">library</h1>
-                <h3 class="tertiary-heading">/ without storage /</h3>
+                <h2 class="tertiary-heading">/ without storage /</h2>
             </div>
-            <button type="button" class="add-button">
+            <button type="button" aria-label="add book button" class="add-button">
                 <svg xmlns="http://www.w3.org/2000/svg" class="add-button-icon" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.5" stroke="#838383" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <path d="M12 5l0 14" />
@@ -39,7 +41,7 @@
             </button>
         </section>
         <main class="library">
-            <div class="library__book">
+            <div class="library__book" data-book-0>
                 <div class="library__book-avatar-box">
                     <img class="library__book-avatar-icon" src="./assets/images/book-icon.svg" alt="Book icon">
                 </div>
@@ -51,11 +53,53 @@
                     </div>
                     <div>
                         <div class="library__book-read-box">
-                            <span>Mark as Read:</span>
-                            <input type="checkbox" class="library__book-read">
+                            <label for="book-read-0">Mark as Read:</label>
+                            <input type="checkbox" id="book-read-0" class="library__book-read">
                         </div>
                         <button type="button" class="library__book-close-button" aria-label="Remove book">
-                            <span></span>
+                            <span class="library__book-close-button-span"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="library__book" data-book-1>
+                <div class="library__book-avatar-box">
+                    <img class="library__book-avatar-icon" src="./assets/images/book-icon.svg" alt="Book icon">
+                </div>
+                <div class="library__book-info-box">
+                    <h3 class="library__book-info-heading">Networking</h3>
+                    <div>
+                        <h4 class="library__book-info-author">@byJimKurose</h4>
+                        <span class="library__book-info-pages">Pages: 852</span>
+                    </div>
+                    <div>
+                        <div class="library__book-read-box">
+                            <label for="book-read-1">Mark as Read:</label>
+                            <input type="checkbox" id="book-read-1" class="library__book-read">
+                        </div>
+                        <button type="button" class="library__book-close-button" aria-label="Remove book">
+                            <span class="library__book-close-button-span"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="library__book" data-book-2>
+                <div class="library__book-avatar-box">
+                    <img class="library__book-avatar-icon" src="./assets/images/book-icon.svg" alt="Book icon">
+                </div>
+                <div class="library__book-info-box">
+                    <h3 class="library__book-info-heading">Recipes for clean code</h3>
+                    <div>
+                        <h4 class="library__book-info-author">@byMaximilianoConieri</h4>
+                        <span class="library__book-info-pages">Pages: 428</span>
+                    </div>
+                    <div>
+                        <div class="library__book-read-box">
+                            <label for="book-read-2">Mark as Read:</label>
+                            <input type="checkbox" id="book-read-2" class="library__book-read">
+                        </div>
+                        <button type="button" class="library__book-close-button" aria-label="Remove book">
+                            <span class="library__book-close-button-span"></span>
                         </button>
                     </div>
                 </div>
@@ -68,11 +112,11 @@
                     <span></span>
                 </button>
             </div>
-            <form  class="modal__form">
+            <form  class="modal__form book-details__form">
                 <ul>
                     <li>
                         <label for="author">Author <strong><span aria-label="required input field">*</span></strong></label>
-                        <input type="text" name="author" id="author" minlength="2" maxlength="11" required placeholder="e.g. Andy Hunt">
+                        <input type="text" name="author" id="author" minlength="2" maxlength="18" required placeholder="e.g. Andy Hunt">
                     </li>
                     <li>
                         <label for="title">Title <strong><span aria-label="required input field">*</span></strong></label>
@@ -80,7 +124,7 @@
                     </li>
                     <li>
                         <label for="pages">Pages <strong><span aria-label="required input field">*</span></strong></label>
-                        <input type="number" min="1" max="999" step="1" name="pages" id="pages" required placeholder="1 - 999">
+                        <input type="number" min="1" max="9999" step="1" name="pages" id="pages" required placeholder="1 - 9999">
                     </li>
                     <li>
                         <label for="read">Mark as Read</label>
@@ -88,7 +132,7 @@
                     </li>
                 </ul>
                 <div>
-                    <button formmethod="dialog" class="modal__submit-button" type="submit">Submit</button>
+                    <button class="modal__submit-button" id="forrm-submit-button" type="submit">Submit</button>
                 </div>
             </form>
         </dialog>

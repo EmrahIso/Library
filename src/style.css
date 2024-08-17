@@ -104,7 +104,7 @@ p, h1, h2, h3, h4, h5, h6 {
     /* PRIMARY */
 
     --clr-primary: rgb(249, 59, 59);
-    --clr-primary--200: rgb(249, 79,79);
+    --clr-primary--200: rgb(222, 48, 67);
     --clr-primary--300: rgb(255, 234, 236); 
     --clr-primary--400: rgb(255, 249, 249);
 
@@ -292,7 +292,7 @@ body {
 }
 
 .library__book-info-author {
-    color: dodgerblue;
+    color: rgb(0, 115, 235);
     font-size: var(--fs-100);
     letter-spacing: .25px;
 }
