@@ -60,6 +60,11 @@ function bookDetailsSubmitted(e) {
     closeBookDetails();
 }
 
+// Every new book "default"
+
+let bookEls = libraryEl.querySelectorAll('.library__book');
+let newDefaultBook = bookEls[0].cloneNode(true);
+
 function addBookToLibrary(bookTitle, bookAuthor, bookPages, bookRead) {
     
     // CamelCase bookAuthor
@@ -73,9 +78,7 @@ function addBookToLibrary(bookTitle, bookAuthor, bookPages, bookRead) {
 
     // Add Book Element into LibraryEl
 
-    let bookEls = libraryEl.querySelectorAll('.library__book');
-
-    let newBook = bookEls[0].cloneNode(true);
+    let newBook = newDefaultBook.cloneNode(true);
     
     // Change Book Info values
     newBook.querySelector('.library__book-info-heading').textContent = `${bookTitle}`;
