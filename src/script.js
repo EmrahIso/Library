@@ -28,7 +28,6 @@ class Book {
 
     changeReadStatus(status) {
         this.read = status;
-        console.log(this);
     }
 }
 
@@ -181,7 +180,6 @@ const ScreenFlowControl = (function() {
     
             let changedStatusValue = e.target.checked;
             libraryControl.getMyLibrary()[objectIndex].changeReadStatus(changedStatusValue);
-            console.log(libraryControl.getMyLibrary());
         }
     }
 
