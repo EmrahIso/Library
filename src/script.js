@@ -119,12 +119,27 @@ const ScreenFlowControl = (function() {
     bookDetailsOpenBtnEl.addEventListener("click", bookDetailsOpenBtnClickEventHandler);
     bookDetailsCloseBtnEl.addEventListener("click", bookDetailsCloseBtnClickEventHandler);
 
-    // Submit Details Form  
+    // Submit Details Form 
 
     const bookDetailsFormEl = document.querySelector('.book-details__form');
 
+    // Functionality to check validity of inputs on every input event
+
+    const bookDetailsInputEls = document.querySelectorAll(".book-details__form input[required]");
+
     const bookDetailsSubmitEventHandler = (e) => {
         e.preventDefault();
+        
+        // Check validity of all required inputs
+
+        bookDetailsInputEls.forEach(el => {
+            if(!el.validity.valid) {
+                showError(el);
+                return;
+            } else {
+                el.setCustomValidity("");
+            }
+        })
 
         const formTitleInputValue = e.target.querySelector('#title').value;
         const formAuthorInputValue = e.target.querySelector('#author').value;
@@ -151,6 +166,46 @@ const ScreenFlowControl = (function() {
 
     bookDetailsFormEl.addEventListener("submit", bookDetailsSubmitEventHandler);
 
+    // Show error function that displays input validation error messages
+
+    const showError = (inputEl) => {
+        const inputID = inputEl.id;
+
+        console.log("inShowError", inputEl);
+
+        switch(inputID) {
+            case "author":
+                if(inputEl.validity.valueMissing) {
+                    inputEl.setCustomValidity("You must enter an author name");
+                } else if(inputEl.validity.tooShort) {
+                    inputEl.setCustomValidity(`Author name should be at least ${inputEl.minLength} characters; you entered ${inputEl.value.length}`);
+                    console.log("tooShort");
+                } else if(inputEl.validity.tooLong) {
+                    inputEl.setCustomValidity(`Author name should be maximum ${inputEl.maxLength} characters; you entered ${inputEl.value.length}`);
+                }
+            break;
+            case "title":
+                if(inputEl.validity.valueMissing) {
+                    inputEl.setCustomValidity("You must enter an title");
+                } else if(inputEl.validity.tooShort) {
+                    inputEl.setCustomValidity(`Title should be at least ${inputEl.minLength} characters; you entered ${inputEl.value.length}`);
+                } else if(inputEl.validity.tooLong) {
+                    inputEl.setCustomValidity(`Title should be maximum ${inputEl.maxLength} characters; you entered ${inputEl.value.length}`);
+                }
+            break;
+            case "pages":
+                if(inputEl.validity.valueMissing) {
+                    inputEl.setCustomValidity("You must enter an pages number");
+                } else if(inputEl.validity.stepMismatch) {
+                    inputEl.setCustomValidity("Your number step must be in correct format");
+                } else if(inputEl.validity.rangeOverflow) {
+                    inputEl.setCustomValidity(`Page number should be maximum ${inputEl.max} characters; you entered ${inputEl.value}`);
+                } else if(inputEl.validity.rangeUnderflow) {
+                    inputEl.setCustomValidity(`Page number should be minimum ${inputEl.min} characters; you entered ${inputEl.value}`);
+                }
+            break;
+        }
+    }
 
     // Remove Book Visually
 
